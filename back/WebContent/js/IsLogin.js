@@ -5,5 +5,10 @@
 const endpoint = "/IsLoggedIn";
 
 function isIt(){
-	gapi.auth2.getAuthInstance().isSignedIn.get();
+	if(gapi.auth2.getAuthInstance().isSignedIn.get()){
+		continue;
+	}
+	else{
+		window.location.href = "login.html";
+	}
 }
