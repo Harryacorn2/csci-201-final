@@ -14,16 +14,5 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry kind="lib" path="/Users/harryacorn2/Desktop/Real Libraries/commons-logging-1.2.jar"/>
-	<classpathentry kind="lib" path="/Users/harryacorn2/Desktop/Real Libraries/google-api-client-servlet-1.31.1.jar"/>
-	<classpathentry kind="lib" path="/Users/harryacorn2/Desktop/Real Libraries/google-http-client-1.38.0.jar"/>
-	<classpathentry kind="lib" path="/Users/harryacorn2/Desktop/Real Libraries/google-oauth-client-1.31.2.jar"/>
-	<classpathentry kind="lib" path="/Users/harryacorn2/Desktop/Real Libraries/google-oauth-client-servlet-1.31.2.jar"/>
-	<classpathentry kind="lib" path="/Users/harryacorn2/Desktop/Real Libraries/httpclient-4.5.13.jar"/>
-	<classpathentry kind="lib" path="/Users/harryacorn2/Desktop/Real Libraries/httpcore-4.4.13.jar"/>
-	<classpathentry kind="lib" path="/Users/harryacorn2/Desktop/Real Libraries/jackson-core-2.11.3.jar"/>
-	<classpathentry kind="lib" path="/Users/harryacorn2/Desktop/Real Libraries/transaction-api-1.1.jar"/>
-	<classpathentry kind="lib" path="/Users/harryacorn2/Desktop/Real Libraries/gson-2.8.6.jar"/>
-	<classpathentry kind="lib" path="/Users/harryacorn2/Downloads/google-api-client-1.31.4.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

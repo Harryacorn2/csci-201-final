@@ -8,11 +8,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-import com.google.api.client.googleapis.auth.oauth2.GoogleIdToken;
-import com.google.api.client.googleapis.auth.oauth2.GoogleIdToken.Payload;
-import com.google.api.client.googleapis.auth.oauth2.GoogleIdTokenVerifier;
-import com.google.api.client.http.HttpTransport;
+import com.google.gson.Gson;
 
 
 
@@ -44,6 +42,14 @@ public class redirect extends HttpServlet {
 		System.out.println(header);
 		System.out.println(payload);
 		
+		Gson gson = new Gson();
+		Token tokenG = gson.fromJson(payload, Token.class);
+		
+		String sub = tokenG.sub;
+		System.out.println(sub);
+		
+		HttpSession session = request.getSession();
+		session.setAttribute("sub", sub);
 	}
 
 }
