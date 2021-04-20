@@ -2,13 +2,17 @@
  * Checks if logged in or not
  */
 
-const endpoint = "/IsLoggedIn";
-
-function isIt(){
-	if(gapi.auth2.getAuthInstance().isSignedIn.get()){
-		continue;
-	}
-	else{
-		window.location.href = "login.html";
-	}
+function isIt() {
+	let request = new XMLHttpRequest();
+	request.open('GET', '/Backend/IsLoggedIn');
+//	request.open('GET', '/IsLoggedIn');
+	request.onload = function() {
+		var r = request.response;
+		if (r == "false"){
+			window.location.href = "login.html";
+			request.responseType = 'text';
+		}
+		console.log(r);
+	};
+	request.send();
 }

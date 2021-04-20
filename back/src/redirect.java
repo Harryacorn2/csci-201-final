@@ -50,5 +50,4 @@ public class redirect extends HttpServlet {
 		HttpSession session = request.getSession();
 		session.setAttribute("sub", sub);
 	}
-
 }
