@@ -3,3 +3,7 @@
  */
 
 const endpoint = "/IsLoggedIn";
+
+function isIt(){
+	gapi.auth2.getAuthInstance().isSignedIn.get();
+}
