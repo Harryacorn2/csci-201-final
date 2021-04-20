@@ -30,7 +30,6 @@ public class redirect extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
 		String token = request.getParameter("id_token");
 		
 		String[] chunks = token.split("\\.");
