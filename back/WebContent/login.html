@@ -76,13 +76,16 @@
 		var id_token = googleUser.getAuthResponse().id_token;
 		
 		var xhr = new XMLHttpRequest();
-		xhr.open('POST', 'http://www.playbyplaysports.live/redirect'); //Need to figure out this part for ourselves
+		xhr.open('POST', '/Backend/redirect', true); // Testing Version
+//		xhr.open('POST', '/redirect', true); // Deployment Version
 		xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 		xhr.send('id_token=' + id_token);
 		xhr.onload = function() {
-			/* console.log('Signed in as: ' + xhr.responseText); */
 			console.log('id_token: ' + id_token);
 		};
+		
+		
+		
 	}
 	</script>
 	
