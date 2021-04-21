@@ -1,0 +1,82 @@
+<html><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>About</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script defer="" src="js/view.js"></script>
+    <script defer="" src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script defer="" src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script defer="" src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script>
+    function whenCalled(){
+		var xhttp = new XMLHttpRequest();
+		var requeststr = "Form?";
+		requeststr += "roomname=" + document.bigform.roomname.value;
+		requeststr += "&sport=" + document.bigform.sport.value;
+		requeststr += "&descript=" + document.bigform.descript.value;
+        xhttp.open("GET", requeststr, true);
+        xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhttp.send();
+       	xhttp.onreadystatechange = function() {
+       		if (xhttp.readyState === xhttp.DONE) {
+                if (xhttp.status === 200) {
+		         	     document.getElementById("cameBack").innerHTML = text;
+		     	}
+       		}
+       	}
+         return false;
+       }
+    </script><style></style>
+<script async="" src="https://negbar.ad-blocker.org/chrome/adblocker-chromeglobalinjectjs.js"></script></head>
+<body id="override">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">...</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">...</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">...</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container align-items-center justify-content-center">
+        <div class="card mx-auto my-4">
+            <div class="card-header text-center display-3"> 
+                View
+            </div>
+            <table id="stream" class="card-body lead table">
+                <thead>
+                    <tr>
+                        <th scope="col">Time</th>
+                        <th scope="col">Message</th>
+                    
+                </tr></thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div>
+    <center>
+    <h2>Enter Next Play</h2>
+    <br>
+    <form action="Form" method="get" name="bigform" onsubmit="return whenCalled()">
+    <textarea id="textareathing" name="textareathing" rows="2" cols="25" placeholder="..."></textarea>  
+    <center>
+    <input type="submit">
+    </center>
+    </form>
+    </center>
+    <div id="cameBack">
+    </div>
+
+</div></body></html>
