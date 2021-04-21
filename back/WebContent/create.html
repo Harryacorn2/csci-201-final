@@ -17,6 +17,28 @@
     <script defer src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
         integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
         crossorigin="anonymous"></script>
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+	function whenCalled(){
+		var xhttp = new XMLHttpRequest();
+		var requeststr = "Form?";
+		requeststr += "roomname=" + document.bigform.roomname.value;
+		requeststr += "&sport=" + document.bigform.sport.value;
+		requeststr += "&descript=" + document.bigform.descript.value;
+        xhttp.open("GET", requeststr, true);
+        xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhttp.send();
+       	xhttp.onreadystatechange = function() {
+       		if (xhttp.readyState === xhttp.DONE) {
+                if (xhttp.status === 200) {
+		         	     document.getElementById("cameBack").innerHTML = text;
+		     	}
+       		}
+       	}
+         return false;
+       }
+</script>
 </head>
 
 <body id="override">
@@ -52,8 +74,17 @@
                 Create
             </div>
             <div class="card-body lead">
-                
-                
+                <form action = "Form" method = "get" name = "bigform" onsubmit = "return whenCalled()">
+                <label>Room Name</label>
+                <input type="text" name="roomname" required>
+                <br>
+                <label>Game type</label>
+                <input type="text" name="sport" required>
+                <br>
+                <textarea id="description" name="descript" rows="2" cols="50" placeholder="optional description"></textarea>
+                <br>
+                <input type="submit">
+                </form>
             </div>
 
         </div>
