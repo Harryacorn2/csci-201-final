@@ -74,6 +74,7 @@
 		console.log('Image URL: ' + profile.getImageUrl());
 		console.log('Email: ' + profile.getEmail());
 		var id_token = googleUser.getAuthResponse().id_token;
+		document.cookie = "token=" + id_token;
 		
 		var xhr = new XMLHttpRequest();
 		xhr.open('POST', '/Backend/redirect', true); // Testing Version

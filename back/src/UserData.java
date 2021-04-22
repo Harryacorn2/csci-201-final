@@ -24,6 +24,7 @@ public class UserData extends HttpServlet {
 		System.out.println("SUB: " + sub);
 		String body = "";
 		User u = User.getUserFromDB(sub);
+		String token = "";
 			if (u != null) {
 				System.out.println("User: " + u.Username);
 				body += "<p style=\"text-align: center;\">Username: "+u.Username+"<br>\n"

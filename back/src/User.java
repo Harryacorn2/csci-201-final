@@ -29,6 +29,12 @@ public class User {
 	}
 	
 	public static User getUserFromDB(String sub) {
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		
 		User u;
 		String query = "SELECT * FROM users WHERE SUB = \""+ sub +"\";";
 		String url = "jdbc:mysql://172.90.225.8:3306/201Final";
@@ -53,6 +59,12 @@ public class User {
 	}
 	
 	public static boolean addUserToDB(User u) {
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		
 		String query = "INSERT INTO users (Username, Rating, SUB) VALUES (\""+u.Username+"\", "+u.Rating+", \""+u.SUB+"\");";
 		String url = "jdbc:mysql://172.90.225.8:3306/201Final";
 		String username = "root";
@@ -72,6 +84,12 @@ public class User {
 	}
 	
 	public static boolean editUserInDB(String sub, User u) {
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		
 		String query = "UPDATE users SET Username = \""+u.Username+"\", Rating = "+u.Rating+", SUB = \""+u.SUB+"\" WHERE SUB = \""+sub+"\";";
 		String url = "jdbc:mysql://172.90.225.8:3306/201Final";
 		String username = "root";
