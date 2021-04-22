@@ -9,26 +9,7 @@
     <script defer="" src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script defer="" src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     <script type="text/javascript" src="js/IsLogin.js"></script>
-    <script>
-    function whenCalled(){
-		var xhttp = new XMLHttpRequest();
-		var requeststr = "Form?";
-		requeststr += "roomname=" + document.bigform.roomname.value;
-		requeststr += "&sport=" + document.bigform.sport.value;
-		requeststr += "&descript=" + document.bigform.descript.value;
-        xhttp.open("GET", requeststr, true);
-        xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-        xhttp.send();
-       	xhttp.onreadystatechange = function() {
-       		if (xhttp.readyState === xhttp.DONE) {
-                if (xhttp.status === 200) {
-		         	     document.getElementById("cameBack").innerHTML = text;
-		     	}
-       		}
-       	}
-         return false;
-       }
-    </script><style></style>
+    <style></style>
 <script async="" src="https://negbar.ad-blocker.org/chrome/adblocker-chromeglobalinjectjs.js"></script></head>
 <body id="override" onload="isIt()">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -66,18 +47,5 @@
             </table>
         </div>
     </div>
-    <div>
-    <center>
-    <h2>Enter Next Play</h2>
-    <br>
-    <form action="Form" method="get" name="bigform" onsubmit="return whenCalled()">
-    <textarea id="textareathing" name="textareathing" rows="2" cols="25" placeholder="..."></textarea>  
-    <center>
-    <input type="submit">
-    </center>
-    </form>
-    </center>
-    <div id="cameBack">
-    </div>
-
-</div></body></html>
+    <center><button onclick="location.href = '/Backend/view'">Click to host</button></center>
+ </body></html>
