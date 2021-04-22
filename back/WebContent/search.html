@@ -11,6 +11,18 @@
 	<script defer src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 	<script defer src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 	<script type="text/javascript" src="js/IsLogin.js"></script>
+	<script>
+	function findPage(){
+	    let find = document.getElementById("searchbar").value;
+	    if(find == ""){
+	        window.location.href = "view.html"
+	    }
+	    else{
+	        document.getElementById("notFound").innerHTML = "No rooms found matching this search";
+	        return false;
+	    }
+	}
+	</script>
 <style>
 form.example input[type=text] {
   padding: 10px;
@@ -83,11 +95,14 @@ form.example::after {
 			<div class="card-header text-center display-4">
 				Search
 			</div>
-				<form class="example" action="/action_page.php" style="margin:auto;max-width:300px">
-                    <input type="text" placeholder="Find games" name="search2">
+				<form class="example" action="/action_page.php" style="margin:auto;max-width:300px" onsubmit="return findPage()">
+                    <input id="searchbar" type="text" placeholder="Find games" name="search2">
                     <button type="submit"><i class="fa fa-search"></i></button>
                 </form>
+                <div id="notFound">
+	            </div>
 		</div>
 	</div>
+	
 </body>
 </html>
