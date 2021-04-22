@@ -77,15 +77,11 @@
 		
 		var xhr = new XMLHttpRequest();
 		xhr.open('POST', '/Backend/redirect', true); // Testing Version
-//		xhr.open('POST', '/redirect', true); // Deployment Version
 		xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 		xhr.send('id_token=' + id_token);
 		xhr.onload = function() {
 			console.log('id_token: ' + id_token);
 		};
-		
-		
-		
 	}
 	</script>
 	
@@ -95,6 +91,14 @@
 	  auth2.signOut().then(function () {
 	    console.log('User signed out.');
 	  });
+	  
+	  var xhr = new XMLHttpRequest();
+		xhr.open('POST', '/Backend/Signout', true); // Testing Version
+		xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+		xhr.onload = function() {
+			console.log(this.responseText);
+		};
+		xhr.send();
 	}
 	</script>	
 	

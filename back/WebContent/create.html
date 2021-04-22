@@ -19,6 +19,7 @@
         crossorigin="anonymous"></script>
         
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script type="text/javascript" src="js/IsLogin.js"></script>
 <script>
 	function whenCalled(){
 		var xhttp = new XMLHttpRequest();
@@ -41,7 +42,7 @@
 </script>
 </head>
 
-<body id="override">
+<body id="override" onload="isIt()">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="index.php">Create</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"

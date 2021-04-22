@@ -8,26 +8,26 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebServlet("/IsLoggedIn")
-public class IsLoggedIn extends HttpServlet {
+/**
+ * Servlet implementation class Signout
+ */
+@WebServlet("/Signout")
+public class Signout extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
 
-    public IsLoggedIn() {
+    public Signout() {
         super();
         // TODO Auto-generated constructor stub
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		if (session.getAttribute("sub") != "out" && session.getAttribute("sub") != null) {
-			response.getWriter().append("true");
-		} else {
-			response.getWriter().append("false");
-		}
+		session.setAttribute("sub", "out");
+		response.getWriter().append("Server: Signed out");
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

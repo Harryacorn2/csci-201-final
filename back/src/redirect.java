@@ -24,9 +24,7 @@ public class redirect extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-//		response.getWriter().append(request.getParameter("id_token"));
-//		System.out.println(request.getParameter("id_token"));
+
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
