@@ -14,13 +14,24 @@
 	<script>
 	function findPage(){
 	    let find = document.getElementById("searchbar").value;
-	    if(find == ""){
-	        window.location.href = "view.html"
-	    }
-	    else{
-	        document.getElementById("notFound").innerHTML = "No rooms found matching this search";
-	        return false;
-	    }
+	    var xhttp = new XMLHttpRequest();
+		var url = "/Backend/CheckRoom?room=";
+		url += find;
+		xhttp.open("GET", url, true);
+		xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+		xhttp.onreadystatechange = function() {
+			var found = this.responseText;
+			if(found == "true"){
+		    	var URI = "/Backend/View?room=";
+		    	URI += find;
+		        location.href = URI;
+		    }
+		    else{
+		        document.getElementById("notFound").innerHTML = "No rooms found matching this search";
+		        return false;
+		    }
+		}
+		xhttp.send();
 	}
 	</script>
 <style>
@@ -95,9 +106,9 @@ form.example::after {
 			<div class="card-header text-center display-4">
 				Search
 			</div>
-				<form class="example" action="/action_page.php" style="margin:auto;max-width:300px" onsubmit="return findPage()">
+				<form class="example" style="margin:auto;max-width:300px">
                     <input id="searchbar" type="text" placeholder="Find games" name="search2">
-                    <button type="submit"><i class="fa fa-search"></i></button>
+                    <button type="button" onclick="return findPage()"><i class="fa fa-search"></i></button>
                 </form>
                 <div id="notFound">
 	            </div>
