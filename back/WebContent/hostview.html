@@ -9,7 +9,13 @@
     <script defer="" src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script defer="" src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     <script type="text/javascript" src="js/IsLogin.js"></script>
-    <style></style>
+    <style>
+    #looks{
+    display: inline-block;
+    height:200px;
+    overflow-y: scroll;
+    }
+    </style>
 <script async="" src="https://negbar.ad-blocker.org/chrome/adblocker-chromeglobalinjectjs.js"></script></head>
 <body id="override" onload="whenCalled()">
 
@@ -58,12 +64,14 @@
             <div class="card-header text-center display-3"> 
                 View
             </div>
+            <div id="looks">
             <table id="messages" class="card-body lead table">
 	            <tr>
 	                 <th scope="col">Time</th>
 	                 <th scope="col">Message</th>
 	            </tr>
             </table>
+            </div>
         </div>
     </div>
     <div style="text-align: center">
