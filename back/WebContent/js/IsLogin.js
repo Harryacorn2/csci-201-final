@@ -16,3 +16,7 @@ function isIt() {
 	};
 	request.send();
 }
+
+function loadUserData() {
+
+}
