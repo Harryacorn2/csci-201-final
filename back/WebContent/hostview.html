@@ -9,28 +9,32 @@
     <script defer="" src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script defer="" src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     <script type="text/javascript" src="js/IsLogin.js"></script>
-    <script>
-    function whenCalled(){
-		var socket = new WebSocket("ws://WebSocket");
-		socket.onopen = function(event){
-			socket.send(document.cookie);
-		}
-		socket.onmessage = function(event){
-			document.getElementById("cameBack").innerHTML += event.data + "<br>";
-		}
-		socket.onclose = function(event){
-			document.getElementByID("cameBack").innerHTML += "Stream ended...";
-		}
-		
-     }
-    function sendMessage(){
-    	socket.send(document.bigform.textareathing.value);
-    	return false;
-    }
-    </script>
     <style></style>
 <script async="" src="https://negbar.ad-blocker.org/chrome/adblocker-chromeglobalinjectjs.js"></script></head>
 <body id="override" onload="whenCalled()">
+
+	<div id="mafs">
+		<script>
+		    var socket = new WebSocket("ws://localhost:8080/Backend/WebSocket?0");
+		    function whenCalled(){
+				socket.onopen = function(event){
+				}
+				socket.onmessage = function(event){
+					document.getElementById("messages").innerHTML += event.data;
+				}
+				socket.onclose = function(event){
+					document.getElementById("cameBack").innerHTML += "Stream ended...";
+				}
+				
+		     }
+		    function sendMessage(){
+		        var value = document.getElementById("messageArea").value;
+		        document.getElementById("messageArea").value = "";
+		    	socket.send(value);
+		    }
+    	</script>
+	</div>
+
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -54,30 +58,22 @@
             <div class="card-header text-center display-3"> 
                 View
             </div>
-            <table id="stream" class="card-body lead table">
-                <thead>
-                    <tr>
-                        <th scope="col">Time</th>
-                        <th scope="col">Message</th>
-                    
-                </tr></thead>
-                <tbody>
-                </tbody>
+            <table id="messages" class="card-body lead table">
+	            <tr>
+	                 <th scope="col">Time</th>
+	                 <th scope="col">Message</th>
+	            </tr>
             </table>
         </div>
     </div>
-    <div>
-    <center>
-    <h2>Enter Next Play</h2>
-    <br>
-    <form action="Form" method="get" name="bigform" onsubmit="return sendMessage()">
-    <textarea id="textareathing" name="textareathing" rows="2" cols="25" placeholder="..."></textarea>  
-    <center>
-    <input type="submit">
-    </center>
-    </form>
-    </center>
+    <div style="text-align: center">
+		<h2>Enter Next Play</h2>
+		<br>
+		<form action="#" method="get" name="bigform">
+		    <textarea id="messageArea" rows="2" cols="25" placeholder="..."></textarea><br>
+		    <button type="button" onclick="sendMessage()">Submit</button>
+		</form>
+    </div>
     <div id="cameBack">
     </div>
-
-</div></body></html>
+</body></html>
