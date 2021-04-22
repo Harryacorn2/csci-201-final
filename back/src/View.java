@@ -22,6 +22,11 @@ public class View extends HttpServlet {
 		if (session.getAttribute("isHost") != null || request.getParameter("sport") != null) {
 			if (request.getParameter("sport") != null) {
 				session.setAttribute("isHost", true);
+				Room r = new Room(request.getParameter("room"), request.getParameter("sport"), request.getParameter("des"));
+				Room.add(r);
+				session.setAttribute("room", r.room);
+			} else {
+				
 			}
 			
 			site += "<html><head>\n"
@@ -41,7 +46,7 @@ public class View extends HttpServlet {
 					+ "\n"
 					+ "	<div id=\"mafs\">\n"
 					+ "		<script>\n"
-					+ "		    var socket = new WebSocket(\"ws://localhost:8080/Backend/WebSocket?"+request.getParameter("room")+"\");\n"
+					+ "		    var socket = new WebSocket(\"ws://localhost:8080/Backend/WebSocket?"+session.getAttribute("room")+"\");\n"
 					+ "		    function whenCalled(){\n"
 					+ "				socket.onopen = function(event){\n"
 					+ "				}\n"
