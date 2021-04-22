@@ -43,9 +43,26 @@ public class redirect extends HttpServlet {
 		Token tokenG = gson.fromJson(payload, Token.class);
 		
 		String sub = tokenG.sub;
+		
 		System.out.println(sub);
 		
 		HttpSession session = request.getSession();
 		session.setAttribute("sub", sub);
+		
+		// Adding a user if one does not already exist
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		
+		User u = User.getUserFromDB(sub);
+		if (u == null) {
+			String username = tokenG.email;
+			int i = username.indexOf("@");
+			username = username.substring(0, i);
+			u = new User(username, 5, sub);
+			User.addUserToDB(u);
+		}
 	}
 }

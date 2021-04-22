@@ -18,5 +18,12 @@ function isIt() {
 }
 
 function loadUserData() {
-
+	var xhttp = new XMLHttpRequest();
+	var url = "/Backend/UserData";
+	xhttp.open("GET", url, true);
+	xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+	xhttp.onreadystatechange = function() {
+		document.getElementById("page").innerHTML = this.responseText;
+	}
+	xhttp.send();
 }

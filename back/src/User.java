@@ -11,6 +11,10 @@ public class User {
 	public int Rating;
 	public String SUB;
 	
+	User () {
+
+	}
+	
 	User (String username, int rating, String sub) {
 		this.Rating = rating;
 		this.SUB = sub;
