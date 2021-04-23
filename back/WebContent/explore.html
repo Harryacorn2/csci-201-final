@@ -10,11 +10,28 @@
 	<script defer src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 	<script defer src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 	<script type="text/javascript" src="js/IsLogin.js"></script>
-	
 </head>
-<body id="override" onload="isIt()">
+<body id="override" onload="isIt();loadRooms();">
+	
+	<script>
+		function loadRooms() {
+			var xhttp = new XMLHttpRequest();
+			var url = "/Backend/GetAllRooms";
+			xhttp.open("GET", url, true);
+			xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+			xhttp.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+					var site = this.responseText;
+					console.log(site);
+					document.getElementById("rooms").innerHTML += site;
+				}
+			}
+			xhttp.send();
+		}
+	</script>
+	
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-		<a class="navbar-brand" href="index.php">Explore</a>
+		<a class="navbar-brand">Explore</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
@@ -23,18 +40,18 @@
 				<li class="nav-item">
 					<a class="nav-link" href="explore.html">Explore</a>
 				</li>
-                <li class="nav-item">
-                    <a class="nav-link" href="search.html">Search</a>
-                </li>
-                <li class="nav-item">
+				<li class="nav-item">
+					<a class="nav-link" href="search.html">Search</a>
+				</li>
+				<li class="nav-item">
 					<a class="nav-link" href="create.html">Create</a>
 				</li>
-                <li class="nav-item">
-                    <a class="nav-link" href="about.html">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="login.html">Login</a>
-                </li>
+				<li class="nav-item">
+					<a class="nav-link" href="about.html">About</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="login.html">Login</a>
+				</li>
 			</ul>
 		</div>
 	</nav>
@@ -43,15 +60,18 @@
 			<div class="card-header text-center display-4">
 				Explore
 			</div>
-			<div class="card-body lead">
-				
-				
-			</div>
 			
+			<div class="card-body lead" align="center">
+				<table id="rooms" class="card-body lead table">
+					<tr align="center">
+						<th scope="col">Room</th>
+						<th scope="col">Sport</th>
+						<th scope="col">Description</th>
+					</tr>
+				</table>
+			
+			</div>
 		</div>
 	</div>
 </body>
 </html>
-
-				
-
