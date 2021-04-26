@@ -27,3 +27,14 @@ function loadUserData() {
 	}
 	xhttp.send();
 }
+
+function closeRoom() {
+	var xhttp = new XMLHttpRequest();
+	var url = "/Backend/CloseRoom";
+	xhttp.open("GET", url, true);
+	xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+	xhttp.onreadystatechange = function() {
+		window.location.href = "http://localhost:8080/Backend/explore.html";
+	}
+	xhttp.send();
+}

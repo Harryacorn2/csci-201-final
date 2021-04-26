@@ -17,8 +17,10 @@ public class WebSocket {
 	public void onMessage(String message, Session session) {
 		System.out.println(message);
 		String text = "";
+		String time = (java.time.LocalTime.now()).toString();
+		time = time.substring(0, 8);
 		text += "<tr align=\"center\">\n"
-				+ "<td scope=\"col\">Time</td>\n"
+				+ "<td scope=\"col\">"+time+"</td>\n"
 				+ "<td scope=\"col\">"+message+"</td>\n"
 				+ "</tr>\n";
 		
