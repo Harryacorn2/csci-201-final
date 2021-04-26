@@ -256,7 +256,7 @@ public class View extends HttpServlet {
 					+ "					"+request.getParameter("room")+"\n"
 					+ "				</div>\n"
 					+ "				<div id=\"looks\">\n"
-					+ "					<table id=\"messages\" class=\"card-body lead table\" style=\"display: block; height: 20px; overflow-y:scroll\">\n"
+					+ "					<table id=\"messages\" class=\"card-body lead table\" style=\"display: block; overflow-y:scroll\">\n"
 					+ "						<tr>\n"
 					+ "							<th scope=\"col\">Time</th>\n"
 					+ "							<th scope=\"col\">Message</th>\n"

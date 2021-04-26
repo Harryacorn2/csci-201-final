@@ -27,8 +27,7 @@ public class UserData extends HttpServlet {
 		String token = "";
 			if (u != null) {
 				System.out.println("User: " + u.Username);
-				body += "<p style=\"text-align: center;\">Username: "+u.Username+"<br>\n"
-						+ "                    Rating: "+u.Rating+"<br>\n</p>";
+				body += "<p style=\"text-align: center;\">Username: "+u.Username+"<br>\n";
 			}
 		response.getWriter().append(body);
 	}
