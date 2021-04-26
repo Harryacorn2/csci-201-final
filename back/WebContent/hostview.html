@@ -20,7 +20,7 @@
 		<script async="" src="https://negbar.ad-blocker.org/chrome/adblocker-chromeglobalinjectjs.js"></script>
 	</head>
 	
-	<body id="override" onload="whenCalled()">
+	<body id="override" onload="whenCalled(); isIt()">
 		<div id="mafs">
 			<script>
 				var socket = new WebSocket("ws://localhost:8080/Backend/WebSocket?0");
